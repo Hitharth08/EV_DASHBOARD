@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EV Truck Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background: #f4f7fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .map-container {
+      height: 600px;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    .section-card {
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      background: #fff;
+      padding: 20px;
+    }
+    h2 {
+      font-weight: 600;
+    }
+    h5 {
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-4">
+    <h2 class="text-center mb-4">EV Truck Route Dashboard: Coimbatore → Salem</h2>
+
+    <div class="map-container mb-5">
+      {{ map|safe }}
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="section-card">
+          <h5>⚡ Charging Stations</h5>
+          <ul>
+            {% for c in charging %}
+              <li><strong>{{ c.name }}</strong>: {{ c.reason }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="section-card">
+          <h5>🔌 Substations</h5>
+          <ul>
+            {% for s in substations %}
+              <li><strong>{{ s.name }}</strong>: {{ s.voltage }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="section-card">
+          <h5>🌱 Renewable Energy Sites</h5>
+          <ul>
+            {% for r in renewables %}
+              <li><strong>{{ r.name }}</strong>: {{ r.type }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="section-card">
+          <h5>🏭 Industrial Zones</h5>
+          <ul>
+            {% for i in industries %}
+              <li>{{ i.name }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {% if traffic_data %}
+    <div class="section-card">
+      <h5>🚛 Estimated Truck Traffic</h5>
+      <ul>
+        {% for traffic in traffic_data %}
+          <li>Lat: {{ traffic.lat }}, Lon: {{ traffic.lon }} – <strong>{{ traffic.speed }}</strong> km/h (Free Flow: {{ traffic.free_flow }} km/h)</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+<div style="background-color: #f1f1f1; padding: 15px; border-radius: 12px; margin: 20px; text-align:center;">
+    <h2 style="color: #333;">🚛 Estimated Trucks Along the Route</h2>
+    <p style="font-size: 28px; font-weight: bold; color: #e74c3c;">{{ estimated_trucks }}</p>
+</div>
+
+
+<!-- ...existing HTML... -->
+
+<div class="container mt-4">
+    <h2>{{ etruck_info.title }}</h2>
+    <p>{{ etruck_info.summary }}</p>
+    <ul>
+        {% for feature in etruck_info.features %}
+            <li>{{ feature }}</li>
+        {% endfor %}
+    </ul>
+    <div class="row">
+        {% for image in etruck_info.images %}
+            <div class="col-md-4">
+                <img src="{{ image.src }}" alt="{{ image.alt }}" class="img-fluid rounded shadow mb-3">
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -43,6 +43,8 @@ def index():
         {"name": "Kalamboli MSEB Substation", "lat": 19.0007, "lon": 73.1232, "voltage": "400/220 kV"},
         {"name": "Khopoli MIDC Grid Area", "lat": 18.7639, "lon": 73.3406, "voltage": "110/33 kV"},
         {"name": "Talegaon Industrial Substation", "lat": 18.7380, "lon": 73.6820, "voltage": "400/220 kV"},
+        {"name": "Chakan MIDC Power Grid", "lat": 18.7550, "lon": 73.8470, "voltage": "400/220 kV"},
+        {"name": "Pimpri Chinchwad MSEDCL Substation", "lat": 18.6257, "lon": 73.8149, "voltage": "400/220 kV"}
     ]
     for s in substations:
         folium.Marker([s["lat"], s["lon"]],

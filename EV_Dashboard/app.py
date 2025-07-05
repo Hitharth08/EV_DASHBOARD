@@ -12,7 +12,8 @@ def index():
     # Define multiple routes
     routes = [
         {"name": "Coimbatore to Salem", "start": "11.0168,76.9558", "end": "11.6643,78.1460"},
-        {"name": "Navi Mumbai to Pune","start": "19.0368,73.0158","end":   "18.5196,73.8554"}
+        {"name": "Navi Mumbai to Pune","start": "19.0368,73.0158","end":   "18.5196,73.8554"},
+        {"name": "Hubli to Chitradurga","start": "15.36, 75.12","end":   "14.23, 76.40"}
     ]
 
     m = folium.Map(location=[11.3, 77.2], zoom_start=8)
@@ -44,7 +45,16 @@ def index():
         {"name": "Khopoli MIDC Grid Area", "lat": 18.7639, "lon": 73.3406, "voltage": "110/33 kV"},
         {"name": "Talegaon Industrial Substation", "lat": 18.7380, "lon": 73.6820, "voltage": "400/220 kV"},
         {"name": "Chakan MIDC Power Grid", "lat": 18.7550, "lon": 73.8470, "voltage": "400/220 kV"},
-        {"name": "Pimpri Chinchwad MSEDCL Substation", "lat": 18.6257, "lon": 73.8149, "voltage": "400/220 kV"}
+        {"name": "Pimpri Chinchwad MSEDCL Substation", "lat": 18.6257, "lon": 73.8149, "voltage": "400/220 kV"},
+         #Hubli to Chitradurga
+        {"name": " Substation", "lat": 15.1631,  "lon": 75.1447, "voltage": "400/220 kV"},
+         {"name": " Substation", "lat": 14.3919,  "lon": 76.0674, "voltage": "400/220 kV"},
+         {"name": " Substation", "lat": 14.6103,  "lon": 75.6243, "voltage": "400/220 kV"},
+         {"name": " Substation", "lat": 14.8009,  "lon": 75.3903, "voltage": "400/220 kV"},
+         {"name": " Substation", "lat": 14.2654,  "lon": 76.3355, "voltage": "400/220 kV"}
+        
+
+
     ]
     for s in substations:
         folium.Marker([s["lat"], s["lon"]],
@@ -59,7 +69,10 @@ def index():
         {"name": "M/S.JLV WIND POWER", "lat": 10.8088, "lon": 77.2028, "type": "Wind"},
         {"name": "Zf Wind Power Coimbatore Private Limited", "lat": 11.1317, "lon": 77.1785, "type": "Wind"},
         {"name": "SWELECT HHV Solar Photovoltaics Pvt. Ltd.", "lat": 11.1430, "lon":  77.0050, "type": "Solar"},
-        {"name": "VC Green Energy", "lat": 10.875476, "lon": 77.1620733, "type": "Solar"}
+        {"name": "VC Green Energy", "lat": 10.875476, "lon": 77.1620733, "type": "Solar"},
+        #Hubli to Chitradurga 
+        {"name": " Mayakonda ", "lat":14.321773,  "lon": 76.111559, "type": "Solar"},
+         {"name": "Unnamed Solar station", "lat": 14.341453, "lon": 76.398584, "type": "Solar"}
     ]
     for r in renewables:
         icon_color = 'orange' if r["type"] == "Solar" else 'purple'
@@ -76,7 +89,13 @@ def index():
         {"name": "Pugalur (Multi-grid Area)", "lat": 10.95, "lon": 77.95, "reason": "400kV AIS/GIS/HVDC grid cluster", "distance_km": 13.2},
         {"name": "Salem Steel Plant", "lat": 11.6490, "lon": 78.1830, "reason": "Heavy industrial activity", "distance_km": 4.07},
         {"name": "SWELECT HHV Solar station", "lat": 11.1520, "lon": 77.0140, "reason": "Reputed solar manufacturing", "distance_km": 6.84},
-        {"name": "VC Green Energy", "lat": 11.0337, "lon": 76.9070, "reason": "Solar-powered site ", "distance_km": 6.38}
+        {"name": "VC Green Energy", "lat": 11.0337, "lon": 76.9070, "reason": "Solar-powered site ", "distance_km": 6.38},
+        #Hubli to Chitradurga 
+        {"name": "Anagodu", "lat": 14.391918, "lon": 76.067372 , "reason": "Solar-powered site ", "distance_km": 1.7},
+        {"name": "Varur", "lat": 15.2159,  "lon": 75.1479 , "reason": "VRL logistics is nearer  ", "distance_km": 1.2},
+        {"name": "Kamadod", "lat": 14.5700,  "lon": 75.6902 , "reason": "Industrial area", "distance_km": 1.5},
+        {"name": "Haveri ", "lat": 14.8392,  "lon": 75.3547 , "reason": "Beside High way", "distance_km": 0.2},
+        {"name": "Chitradurga ", "lat": 14.2654, "lon": 76.3355 , "reason": "Beside highway ", "distance_km": 0.7}
     ]
     for c in charging_sites:
         distance_info = f"Distance from route: {c.get('distance_km')} km" if "distance_km" in c else ""

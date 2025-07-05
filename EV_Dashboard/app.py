@@ -13,7 +13,8 @@ def index():
     routes = [
         {"name": "Coimbatore to Salem", "start": "11.0168,76.9558", "end": "11.6643,78.1460"},
         {"name": "Navi Mumbai to Pune","start": "19.0368,73.0158","end":   "18.5196,73.8554"},
-        {"name": "Hubli to Chitradurga","start": "15.36, 75.12","end":   "14.23, 76.40"}
+        {"name": "Hubli to Chitradurga","start": "15.36, 75.12","end":   "14.23, 76.40"},
+        {"name": "surat to vadodara","start": "21.1702,72.8311","end": "22.3072	73.1812"}
     ]
 
     m = folium.Map(location=[11.3, 77.2], zoom_start=8)
@@ -51,7 +52,10 @@ def index():
          {"name": " Substation", "lat": 14.3919,  "lon": 76.0674, "voltage": "400/220 kV"},
          {"name": " Substation", "lat": 14.6103,  "lon": 75.6243, "voltage": "400/220 kV"},
          {"name": " Substation", "lat": 14.8009,  "lon": 75.3903, "voltage": "400/220 kV"},
-         {"name": " Substation", "lat": 14.2654,  "lon": 76.3355, "voltage": "400/220 kV"}
+         {"name": " Substation", "lat": 14.2654,  "lon": 76.3355, "voltage": "400/220 kV"},
+        #surat to vadodara
+        {"name": "Palsana GETCO Substation", "lat": 21.2085, "lon": 72.9282, "voltage": "220kV"},
+        {"name": "Vav GETCO Substation (Bharuch)", "lat": 21.6952, "lon": 73.0562, "voltage": "220kV"}
         
 
 
@@ -72,7 +76,10 @@ def index():
         {"name": "VC Green Energy", "lat": 10.875476, "lon": 77.1620733, "type": "Solar"},
         #Hubli to Chitradurga 
         {"name": " Mayakonda ", "lat":14.321773,  "lon": 76.111559, "type": "Solar"},
-         {"name": "Unnamed Solar station", "lat": 14.341453, "lon": 76.398584, "type": "Solar"}
+         {"name": "Unnamed Solar station", "lat": 14.341453, "lon": 76.398584, "type": "Solar"},
+        #surat to vadodara
+        {"name": "NTPC Kawas Solar & Gas Plant", "lat": 21.0905, "lon": 72.7118, "type": "Solar + Gas"},
+        {"name": "Vahelam Solar Park", "lat": 21.7941, "lon": 73.2175, "type": "Solar"}
     ]
     for r in renewables:
         icon_color = 'orange' if r["type"] == "Solar" else 'purple'
@@ -95,7 +102,11 @@ def index():
         {"name": "Varur", "lat": 15.2159,  "lon": 75.1479 , "reason": "VRL logistics is nearer  ", "distance_km": 1.2},
         {"name": "Kamadod", "lat": 14.5700,  "lon": 75.6902 , "reason": "Industrial area", "distance_km": 1.5},
         {"name": "Haveri ", "lat": 14.8392,  "lon": 75.3547 , "reason": "Beside High way", "distance_km": 0.2},
-        {"name": "Chitradurga ", "lat": 14.2654, "lon": 76.3355 , "reason": "Beside highway ", "distance_km": 0.7}
+        {"name": "Chitradurga ", "lat": 14.2654, "lon": 76.3355 , "reason": "Beside highway ", "distance_km": 0.7},
+        #surat to vadodara
+        {"name": "Palsana Charging Station", "lat": 21.1848, "lon": 72.9196, "voltage": "350kW + 180kW"},
+        {"name": "Bharuch Charging Station", "lat": 21.6945, "lon": 72.9985, "voltage": "350kW + 180kW"}
+
     ]
     for c in charging_sites:
         distance_info = f"Distance from route: {c.get('distance_km')} km" if "distance_km" in c else ""

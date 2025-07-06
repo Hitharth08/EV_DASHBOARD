@@ -14,7 +14,8 @@ def index():
         {"name": "Coimbatore to Salem", "start": "11.0168,76.9558", "end": "11.6643,78.1460"},
         {"name": "Navi Mumbai to Pune","start": "19.0368,73.0158","end":   "18.5196,73.8554"},
         {"name": "Hubli to Chitradurga","start": "15.36, 75.12","end":   "14.23, 76.40"},
-        {"name": "surat to vadodara","start": "21.1702,72.8311","end": "22.3072	73.1812"}
+        {"name": "surat to vadodara","start": "21.1702,72.8311","end": "22.3072	73.1812"},
+        {"name": "Mumbai to Nashik","start": "19.0760,72.8777","end": "19.9975,73.7898"}
     ]
 
     m = folium.Map(location=[11.3, 77.2], zoom_start=8)
@@ -55,10 +56,12 @@ def index():
          {"name": " Substation", "lat": 14.2654,  "lon": 76.3355, "voltage": "400/220 kV"},
         #surat to vadodara
         {"name": "Palsana GETCO Substation", "lat": 21.2085, "lon": 72.9282, "voltage": "220kV"},
-        {"name": "Vav GETCO Substation (Bharuch)", "lat": 21.6952, "lon": 73.0562, "voltage": "220kV"}
+        {"name": "Vav GETCO Substation (Bharuch)", "lat": 21.6952, "lon": 73.0562, "voltage": "220kV"},
+        #Mumbai to Nashik
+         {"name": "Ghoti Budruk", "lat": 19.7050, "lon": 73.6240, "voltage": "132 kV"},
+         {"name": "Igatpuri", "lat": 19.6960, "lon": 73.5610, "voltage": "220 kV"},
+         {"name": "Shahapur Outskirts", "lat": 19.4650, "lon": 73.3350, "voltage": "132 kV"}
         
-
-
     ]
     for s in substations:
         folium.Marker([s["lat"], s["lon"]],
@@ -79,7 +82,11 @@ def index():
          {"name": "Unnamed Solar station", "lat": 14.341453, "lon": 76.398584, "type": "Solar"},
         #surat to vadodara
         {"name": "NTPC Kawas Solar & Gas Plant", "lat": 21.0905, "lon": 72.7118, "type": "Solar + Gas"},
-        {"name": "Vahelam Solar Park", "lat": 21.7941, "lon": 73.2175, "type": "Solar"}
+        {"name": "Vahelam Solar Park", "lat": 21.7941, "lon": 73.2175, "type": "Solar"},
+        #Mumbai to Nashik
+        {"name": "Mumbai (Solar project IX)", "lat": 19.1650, "lon":72.9212, "type":"Solar"},
+        {"name": "Igatpuri Taluka Solar Project", "lat": 19.7878, "lon":73.6599, "type":"Solar"},
+        {"name": "Nashik Taluka Solar Project", "lat": 19.9937, "lon":73.7221, "type":"Solar"}
     ]
     for r in renewables:
         icon_color = 'orange' if r["type"] == "Solar" else 'purple'
@@ -105,7 +112,11 @@ def index():
         {"name": "Chitradurga ", "lat": 14.2654, "lon": 76.3355 , "reason": "Beside highway ", "distance_km": 0.7},
         #surat to vadodara
         {"name": "Palsana Charging Station", "lat": 21.1848, "lon": 72.9196, "voltage": "350kW + 180kW"},
-        {"name": "Bharuch Charging Station", "lat": 21.6945, "lon": 72.9985, "voltage": "350kW + 180kW"}
+        {"name": "Bharuch Charging Station", "lat": 21.6945, "lon": 72.9985, "voltage": "350kW + 180kW"},
+        #Mumbai to Nashik
+        {"name": "Gonde Industrial Area","lat":19.9130, "lon": 73.7010, "reason": "Industrial Zone", "distance_km": 0.9},
+        {"name": "Kasara Entry Point","lat":19.6480, "lon": 73.5480, "reason": "supportive resting point", "distance_km": 0.9},
+        {"name": "Khadavli Bridge","lat":19.4250, "lon": 73.3000, "reason": "Beside high way", "distance_km": 1.0}
 
     ]
     for c in charging_sites:

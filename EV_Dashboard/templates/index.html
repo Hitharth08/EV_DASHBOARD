@@ -32,87 +32,108 @@
 </head>
 <body>
   <div class="container my-4">
-    <h2 class="text-center mb-4">EV Truck Route Dashboard: Coimbatore → Salem</h2>
+    <h2 class="text-center mb-4">EV Truck Route Dashboard</h2>
 
     <div class="map-container mb-5">
       {{ map|safe }}
     </div>
 
-    <div class="row">
-      <div class="col-md-6">
-        <div class="section-card">
-          <h5>⚡ Charging Stations</h5>
-          <ul>
-            {% for c in charging %}
-              <li><strong>{{ c.name }}</strong>: {{ c.reason }}</li>
-            {% endfor %}
-          </ul>
-        </div>
-        <div class="section-card">
-          <h5>🔌 Substations</h5>
-          <ul>
-            {% for s in substations %}
-              <li><strong>{{ s.name }}</strong>: {{ s.voltage }}</li>
-            {% endfor %}
-          </ul>
-        </div>
+    <div class="mb-4 text-center">
+      <strong>Available Routes:</strong>
+      <div>
+        {% for route in routes %}
+          <span class="badge badge-info mx-1 route-badge" data-name="{{ route.name }}">{{ route.name }}</span>
+        {% endfor %}
       </div>
-      <div class="col-md-6">
-        <div class="section-card">
-          <h5>🌱 Renewable Energy Sites</h5>
-          <ul>
-            {% for r in renewables %}
-              <li><strong>{{ r.name }}</strong>: {{ r.type }}</li>
-            {% endfor %}
-          </ul>
+    </div>
+
+    <div id="route-info" class="section-card" style="display: none;">
+      <h5 id="route-title"></h5>
+      <p id="route-description"></p>
+    </div>
+
+    <div id="route-data" style="display: none;">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="section-card">
+            <h5>⚡ Charging Stations</h5>
+            <ul id="charging-list"></ul>
+          </div>
+          <div class="section-card">
+            <h5>🔌 Substations</h5>
+            <ul id="substation-list"></ul>
+          </div>
         </div>
-        <div class="section-card">
-          <h5>🏭 Industrial Zones</h5>
-          <ul>
-            {% for i in industries %}
-              <li>{{ i.name }}</li>
-            {% endfor %}
-          </ul>
+        <div class="col-md-6">
+          <div class="section-card">
+            <h5>🌱 Renewable Energy Sites</h5>
+            <ul id="renewable-list"></ul>
+          </div>
         </div>
       </div>
     </div>
 
-    {% if traffic_data %}
-    <div class="section-card">
-      <h5>🚛 Estimated Truck Traffic</h5>
+    <div style="background-color: #f1f1f1; padding: 15px; border-radius: 12px; margin: 20px; text-align:center;">
+      <h2 style="color: #333;">🚛 ROUTES</h2>
+      <p style="font-size: 28px; font-weight: bold; color: #e74c3c;">{{ estimated_trucks }}</p>
+    </div>
+
+    <div class="container mt-4">
+      <h2>{{ etruck_info.title }}</h2>
+      <p>{{ etruck_info.summary }}</p>
       <ul>
-        {% for traffic in traffic_data %}
-          <li>Lat: {{ traffic.lat }}, Lon: {{ traffic.lon }} – <strong>{{ traffic.speed }}</strong> km/h (Free Flow: {{ traffic.free_flow }} km/h)</li>
+        {% for feature in etruck_info.features %}
+          <li>{{ feature }}</li>
         {% endfor %}
       </ul>
-    </div>
-    {% endif %}
-  </div>
-<div style="background-color: #f1f1f1; padding: 15px; border-radius: 12px; margin: 20px; text-align:center;">
-    <h2 style="color: #333;">🚛 Estimated Trucks Along the Route</h2>
-    <p style="font-size: 28px; font-weight: bold; color: #e74c3c;">{{ estimated_trucks }}</p>
-</div>
-
-
-<!-- ...existing HTML... -->
-
-<div class="container mt-4">
-    <h2>{{ etruck_info.title }}</h2>
-    <p>{{ etruck_info.summary }}</p>
-    <ul>
-        {% for feature in etruck_info.features %}
-            <li>{{ feature }}</li>
-        {% endfor %}
-    </ul>
-    <div class="row">
+      <div class="row">
         {% for image in etruck_info.images %}
-            <div class="col-md-4">
-                <img src="{{ image.src }}" alt="{{ image.alt }}" class="img-fluid rounded shadow mb-3">
-            </div>
+          <div class="col-md-4">
+            <img src="{{ image.src }}" alt="{{ image.alt }}" class="img-fluid rounded shadow mb-3">
+          </div>
         {% endfor %}
+      </div>
     </div>
-</div>
+  </div>
 
+  <script>
+    const charging = {{ charging|tojson }};
+    const substations = {{ substations|tojson }};
+    const renewables = {{ renewables|tojson }};
+    const routes = {{ routes|tojson }};
 
+    document.querySelectorAll('.route-badge').forEach(badge => {
+      badge.addEventListener('click', function () {
+        const routeName = this.getAttribute('data-name');
+        const selectedRoute = routes.find(r => r.name === routeName);
+
+        document.getElementById('route-title').textContent = routeName;
+        document.getElementById('route-description').textContent = selectedRoute.description || "";
+
+        const routeCharging = charging.filter(c => c.route === routeName);
+        const routeSubstations = substations.filter(s => s.route === routeName);
+        const routeRenewables = renewables.filter(r => r.route === routeName);
+
+        const fillList = (id, items, fields) => {
+          const ul = document.getElementById(id);
+          ul.innerHTML = '';
+          items.forEach(item => {
+            const text = fields.map(f => item[f]).join(" - ");
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${item.name}</strong>: ${text}`;
+            ul.appendChild(li);
+          });
+        };
+
+        fillList("charging-list", routeCharging, ["reason"]);
+        fillList("substation-list", routeSubstations, ["voltage"]);
+        fillList("renewable-list", routeRenewables, ["type"]);
+
+        document.getElementById("route-info").style.display = "block";
+        document.getElementById("route-data").style.display = "block";
+        document.getElementById("route-info").scrollIntoView({ behavior: "smooth" });
+      });
+    });
+  </script>
 </body>
 </html>

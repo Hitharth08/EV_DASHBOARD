@@ -134,8 +134,8 @@ def index():
         {"name": "Chitradurga ", "lat": 14.2654, "lon": 76.3355 , "reason": "Beside highway ", "distance_km": 0.7},
         
         #surat to vadodara
-        {"name": "Palsana Charging Station", "lat": 21.1848, "lon": 72.9196, "voltage": "350kW + 180kW"},
-        {"name": "Bharuch Charging Station", "lat": 21.6945, "lon": 72.9985, "voltage": "350kW + 180kW"},
+        {"name": "Palsana Charging Station", "lat": 21.1848, "lon": 72.9196, "reason": "Close to NH-48, near Palsana GIDC", "distance_km": 2.5},
+        {"name": "Bharuch Charging Station", "lat": 21.6945, "lon": 72.9985, "reason": "Strategic midpoint on NH-48", "distance_km": 6.5}
         
         #Mumbai to Nashik
         {"name": "Gonde Industrial Area","lat":19.9130, "lon": 73.7010, "reason": "Industrial Zone", "distance_km": 0.9},

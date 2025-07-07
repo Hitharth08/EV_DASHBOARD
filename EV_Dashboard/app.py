@@ -34,6 +34,7 @@ def index():
 
     # Substations
     substations = [
+        # COIMBATORE TO SALEM
         {"name": "Arasur AIS", "lat": 11.1269, "lon": 77.1929, "voltage": "400/220 kV"},
         {"name": "K. Paramathi", "lat": 11.0398, "lon": 77.7583, "voltage": "110/33 kV"},
         {"name": "Salem AIS", "lat": 11.6643, "lon": 78.1460, "voltage": "400/220 kV"},
@@ -48,15 +49,18 @@ def index():
         {"name": "Talegaon Industrial Substation", "lat": 18.7380, "lon": 73.6820, "voltage": "400/220 kV"},
         {"name": "Chakan MIDC Power Grid", "lat": 18.7550, "lon": 73.8470, "voltage": "400/220 kV"},
         {"name": "Pimpri Chinchwad MSEDCL Substation", "lat": 18.6257, "lon": 73.8149, "voltage": "400/220 kV"},
-         #Hubli to Chitradurga
+        
+        #Hubli to Chitradurga
         {"name": " Substation", "lat": 15.1631,  "lon": 75.1447, "voltage": "400/220 kV"},
-         {"name": " Substation", "lat": 14.3919,  "lon": 76.0674, "voltage": "400/220 kV"},
-         {"name": " Substation", "lat": 14.6103,  "lon": 75.6243, "voltage": "400/220 kV"},
-         {"name": " Substation", "lat": 14.8009,  "lon": 75.3903, "voltage": "400/220 kV"},
-         {"name": " Substation", "lat": 14.2654,  "lon": 76.3355, "voltage": "400/220 kV"},
+        {"name": " Substation", "lat": 14.3919,  "lon": 76.0674, "voltage": "400/220 kV"},
+        {"name": " Substation", "lat": 14.6103,  "lon": 75.6243, "voltage": "400/220 kV"},
+        {"name": " Substation", "lat": 14.8009,  "lon": 75.3903, "voltage": "400/220 kV"},
+        {"name": " Substation", "lat": 14.2654,  "lon": 76.3355, "voltage": "400/220 kV"},
+        
         #surat to vadodara
         {"name": "Palsana GETCO Substation", "lat": 21.2085, "lon": 72.9282, "voltage": "220kV"},
         {"name": "Vav GETCO Substation (Bharuch)", "lat": 21.6952, "lon": 73.0562, "voltage": "220kV"},
+        
         #Mumbai to Nashik
          {"name": "Ghoti Budruk", "lat": 19.7050, "lon": 73.6240, "voltage": "132 kV"},
          {"name": "Igatpuri", "lat": 19.6960, "lon": 73.5610, "voltage": "220 kV"},
@@ -70,6 +74,7 @@ def index():
 
     # Renewables
     renewables = [
+        # COIMBATORE TO SALEM
         {"name": "Kayathar Wind Farm Zone", "lat": 10.957, "lon": 77.341, "type": "Wind"},
         {"name": "Sankarankoil Solar Park", "lat": 10.957, "lon": 77.892, "type": "Solar"},
         {"name": "ARS Solar Power Plant", "lat": 11.2645, "lon": 77.0547, "type": "Solar"},
@@ -77,12 +82,27 @@ def index():
         {"name": "Zf Wind Power Coimbatore Private Limited", "lat": 11.1317, "lon": 77.1785, "type": "Wind"},
         {"name": "SWELECT HHV Solar Photovoltaics Pvt. Ltd.", "lat": 11.1430, "lon":  77.0050, "type": "Solar"},
         {"name": "VC Green Energy", "lat": 10.875476, "lon": 77.1620733, "type": "Solar"},
+
+        # NAVI MUMBAI TO PUNE
+        {"name": "Hinjawadi IT Solar Rooftops", "lat": 18.5941, "lon": 73.7093, "type": "Solar"},
+        {"name": "Talegaon Solar Industrial ", "lat": 18.7378, "lon": 73.6799, "type": "Solar"},
+        {"name": "Panvel MIDC Solar Zone", "lat": 18.9939, "lon": 73.1101, "type": "Solar"},
+        {"name": "Pune Airport Solar Plant", "lat": 18.5822, "lon": 73.9197, "type": "Solar"},
+        {"name": "Khopoli Wind Farm", "lat": 18.7600, "lon": 73.3400, "type": "Wind"},
+        {"name": "Khalapur Wind Farm", "lat": 18.8000, "lon": 73.2900, "type": "Wind"},
+        {"name": "Lonavala Ridge Wind Farm", "lat": 18.7483, "lon": 73.4051, "type": "Wind"},
+        {"name": "Rajmachi Hill Wind Corridor", "lat": 18.7350, "lon": 73.4050, "type": "Wind"},
+        {"name": "Khandala Hill Wind Zone", "lat": 18.7686, "lon": 73.3756, "type": "Wind"},
+        {"name": "Chalkewadi Windmill Farms", "lat": 17.4788, "lon": 73.8365, "type": "Wind"},
+        
         #Hubli to Chitradurga 
         {"name": " Mayakonda ", "lat":14.321773,  "lon": 76.111559, "type": "Solar"},
          {"name": "Unnamed Solar station", "lat": 14.341453, "lon": 76.398584, "type": "Solar"},
+        
         #surat to vadodara
         {"name": "NTPC Kawas Solar & Gas Plant", "lat": 21.0905, "lon": 72.7118, "type": "Solar + Gas"},
         {"name": "Vahelam Solar Park", "lat": 21.7941, "lon": 73.2175, "type": "Solar"},
+        
         #Mumbai to Nashik
         {"name": "Mumbai (Solar project IX)", "lat": 19.1650, "lon":72.9212, "type":"Solar"},
         {"name": "Igatpuri Taluka Solar Project", "lat": 19.7878, "lon":73.6599, "type":"Solar"},
@@ -96,6 +116,7 @@ def index():
 
     # Charging Stations
     charging_sites = [
+        # COIMBATORE TO SALEM
         {"name": "Arasur - Near Industrial Belt", "lat": 11.1269, "lon": 77.1929, "reason": "400kV substation + industrial zone", "distance_km": 0.0},
         {"name": "Tiruppur Region", "lat": 11.1075, "lon": 77.3411, "reason": "Textile hub, heavy truck traffic", "distance_km": 0.0},
         {"name": "Erode Bypass - Periyakodivery", "lat": 11.5000, "lon": 77.8000, "reason": "Central point, grid availability", "distance_km": 0.0},
@@ -104,15 +125,18 @@ def index():
         {"name": "Salem Steel Plant", "lat": 11.6490, "lon": 78.1830, "reason": "Heavy industrial activity", "distance_km": 4.07},
         {"name": "SWELECT HHV Solar station", "lat": 11.1520, "lon": 77.0140, "reason": "Reputed solar manufacturing", "distance_km": 6.84},
         {"name": "VC Green Energy", "lat": 11.0337, "lon": 76.9070, "reason": "Solar-powered site ", "distance_km": 6.38},
+        
         #Hubli to Chitradurga 
         {"name": "Anagodu", "lat": 14.391918, "lon": 76.067372 , "reason": "Solar-powered site ", "distance_km": 1.7},
         {"name": "Varur", "lat": 15.2159,  "lon": 75.1479 , "reason": "VRL logistics is nearer  ", "distance_km": 1.2},
         {"name": "Kamadod", "lat": 14.5700,  "lon": 75.6902 , "reason": "Industrial area", "distance_km": 1.5},
         {"name": "Haveri ", "lat": 14.8392,  "lon": 75.3547 , "reason": "Beside High way", "distance_km": 0.2},
         {"name": "Chitradurga ", "lat": 14.2654, "lon": 76.3355 , "reason": "Beside highway ", "distance_km": 0.7},
+        
         #surat to vadodara
         {"name": "Palsana Charging Station", "lat": 21.1848, "lon": 72.9196, "voltage": "350kW + 180kW"},
         {"name": "Bharuch Charging Station", "lat": 21.6945, "lon": 72.9985, "voltage": "350kW + 180kW"},
+        
         #Mumbai to Nashik
         {"name": "Gonde Industrial Area","lat":19.9130, "lon": 73.7010, "reason": "Industrial Zone", "distance_km": 0.9},
         {"name": "Kasara Entry Point","lat":19.6480, "lon": 73.5480, "reason": "supportive resting point", "distance_km": 0.9},
@@ -130,6 +154,7 @@ def index():
 
     # Industries
     industries = [
+        # COIMBATORE TO SALEM
         {"name": "IndoSpace Coimbatore", "lat": 10.905, "lon": 77.090},
         {"name": "Tiruppur Textile Cluster", "lat": 11.1075, "lon": 77.3411},
         {"name": "Perumanallur Industrial Park", "lat": 11.152, "lon": 77.397},

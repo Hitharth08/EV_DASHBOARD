@@ -59,11 +59,11 @@ def index():
         {"route": "Navi Mumbai to Pune","name": "Pimpri Chinchwad MSEDCL Substation", "lat": 18.6257, "lon": 73.8149, "voltage": "400/220 kV"},
         
         #Hubli to Chitradurga
-        {"route": "Hubli to Chitradurga","name": " Substation", "lat": 15.1631,  "lon": 75.1447, "voltage": "400/220 kV"},
-        {"route": "Hubli to Chitradurga","name": " Substation", "lat": 14.3919,  "lon": 76.0674, "voltage": "400/220 kV"},
-        {"route": "Hubli to Chitradurga","name": " Substation", "lat": 14.6103,  "lon": 75.6243, "voltage": "400/220 kV"},
-        {"route": "Hubli to Chitradurga","name": " Substation", "lat": 14.8009,  "lon": 75.3903, "voltage": "400/220 kV"},
-        {"route": "Hubli to Chitradurga","name": " Substation", "lat": 14.2654,  "lon": 76.3355, "voltage": "400/220 kV"},
+        {"route": "Hubli to Chitradurga","name": "Ramakoppa Substation", "lat": 15.1631,  "lon": 75.1447, "voltage": "400/220 kV"},
+        {"route": "Hubli to Chitradurga","name": " Angodu Substation", "lat": 14.3919,  "lon": 76.0674, "voltage": "400/220 kV"},
+        {"route": "Hubli to Chitradurga","name": "KEB Grid Renebrnnur Substation", "lat": 14.6103,  "lon": 75.6243, "voltage": "400/220 kV"},
+        {"route": "Hubli to Chitradurga","name": " KEB Power Haveri Substation", "lat": 14.8009,  "lon": 75.3903, "voltage": "400/220 kV"},
+        {"route": "Hubli to Chitradurga","name": "Vestas wind technology Gonur  Substation", "lat": 14.27676036964637, "lon": 76.42529302431909, "voltage": "400/220 kV"},
         
         #surat to vadodara
         {"route": "Surat to Vadodara","name": "Palsana GETCO Substation", "lat": 21.2085, "lon": 72.9282, "voltage": "220kV"},

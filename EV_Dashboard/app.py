@@ -169,7 +169,11 @@ def index():
         {"route": "Coimbatore to Salem","name": "SIDCO Veerapandi, Salem", "lat": 11.635, "lon": 78.070},
         {"route": "Coimbatore to Salem","name": "Salem Steel Plant", "lat": 11.640, "lon": 78.174},
         {"route": "Coimbatore to Salem","name": "Mettur Industrial Area", "lat": 11.786, "lon": 77.800},
-        {"route": "Coimbatore to Salem","name": "Sangagiri Transport Hub", "lat": 11.478, "lon": 77.872}
+        {"route": "Coimbatore to Salem","name": "Sangagiri Transport Hub", "lat": 11.478, "lon": 77.872},
+        #surat to vadodara
+        {"route": "surat to vadodara","name": "Palsana GIDC", "lat": 21.1900, "lon": 72.9240},
+        {"route": "surat to vadodara","name": "Ankleshwar GIDC", "lat": 21.6214, "lon": 73.0196},
+        {"route": "surat to vadodara","name": "Nandesari GIDC", "lat": 22.3798, "lon": 73.1026}
     ]
     for ind in industries:
         folium.Marker([ind["lat"], ind["lon"]],
